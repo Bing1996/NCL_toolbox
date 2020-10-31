@@ -8,7 +8,7 @@ os.system('clear')
 
 #dil.download(2020 , 10 , 26 , "12:00")
 
-workDir = '/home/bing/code/NCL_toolbox'
+workDir = '/home/bing/NCL_toolbox'
 
 StatesFile = workDir + '/us_shapefile/cb_2018_us_state_5m.shp'
 CountyFile = workDir + '/us_shapefile/cb_2018_us_county_5m.shp'
