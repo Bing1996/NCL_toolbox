@@ -18,9 +18,10 @@ def zoomToDomain(res , data , newlon , newlat):
     #res.cnFillPalette     = "WhiteBlueGreenYellowRed"
 
     res.cnLevelSelectionMode = 'ManualLevels'
+    print(int(data.min()) , int(data.max()))
     res.cnMinLevelValF = int(data.min())
     res.cnMaxLevelValF = int(data.max())
-    res.cnLevelSpacingF = 0.5
+    res.cnLevelSpacingF = 1
 
     res.mpLimitMode         = "Corners"   # limit map via two opposite corners
     res.mpLeftCornerLatF    = np.min(newlat)          # left corner

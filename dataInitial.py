@@ -6,14 +6,21 @@ import Ngl
 import shapefile as shp
 import numpy as np
 
-def accessData(filename):
+def getInfo(file , variable):
+    miss = file.variables[variable]._FillValue[0]
+    scale = file.variables[variable].scale_factor[0]
+    add = file.variables[variable].add_offset[0]
+    return miss , scale , add
+
+def accessData(filename , variable):
     data_dir  = Ngl.pynglpath("data")
     file = Nio.open_file(os.path.join(data_dir,filename),"r")
-    data = file.variables['t'][:]
+    print(file)
+    data = file.variables[variable][:]
     data = data[0,:,:]
     data_lon = file.variables['longitude'][:]
     data_lat = file.variables['latitude'][:]
-    return data , data_lon , data_lat
+    return file , data , data_lon , data_lat
 
 def download(year , month , day , time):
     c = cdsapi.Client()
